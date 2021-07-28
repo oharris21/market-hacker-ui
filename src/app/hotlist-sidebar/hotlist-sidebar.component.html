@@ -1,0 +1,40 @@
+<link href='https://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
+
+<div class="sidebar">
+  <div class="title">
+    <span class="fire">H</span>
+    <span class="burn">o</span>
+    <span class="burn">t</span>
+    <span class="fire">L</span>
+    <span class="fire">i</span>
+    <span class="fire">s</span>
+    <span class="fire">t</span>
+  </div>
+
+  <div class="spinner-border text-light loading-format" role="status" *ngIf="loading">
+  </div>
+  
+  <div class="table-wrapper" *ngIf="!loading && !emptyHotList">
+    <table>
+      <thead>
+        <th class="symbol">Symbol</th>
+        <th class="price">Price</th>
+        <th class="support-level">Five Min Dip</th>
+        <th class="exchange">Exchange</th>
+      </thead>
+      <tr *ngFor="let stock of hotListStocks | fiveMinuteDipPercentagePipe">
+        <td>{{stock.symbol}}</td>
+        <td>{{stock.price}}</td>
+        <td>-{{stock.fiveMinuteDipPercentage}}%</td>
+        <td>{{stock.exchangeShortName}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <h4 *ngIf="emptyHotList">Hotlist is empty</h4>
+
+  <a routerLink="/hotlist" *ngIf="!loading">
+    <button type="button" class="btn">View</button>
+  </a>
+</div>

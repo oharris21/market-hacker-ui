@@ -1,0 +1,265 @@
+<div class="background">
+    <div class="search-box">
+        <h4>Screen for Stocks</h4><br>
+        <table class="table">
+            <tbody class="form-check form-switch">
+                <tr>
+                    <td class="radio">
+                        <input class="form-check-input switch-button" type="checkbox" (click)="selectCheckbox(marketCapStringLiteral)">
+                    </td>
+                    <td>Market Cap</td>
+                    <td class="greater-and-less" [hidden]="!marketCapSelected">
+                        <input type="radio" [checked]="marketCapGreaterOrLess === 1" (change)="marketCapGreaterOrLess = 1"> greater than<br>
+                        <input type="radio" [checked]="marketCapGreaterOrLess === 0" (change)="marketCapGreaterOrLess = 0"> less than
+                    </td>
+                    <td class="greater-and-less" [hidden]="!marketCapSelected">
+                        <input class="form-control input" type="text" [(ngModel)]="marketCap"></td>
+                    <td class="empty-td"></td>
+                    <td class="empty-td"></td>
+                </tr>
+                <tr>
+                    <td class="radio"><input class="form-check-input switch-button" type="checkbox" (click)="selectCheckbox(priceStringLiteral)"></td>
+                    <td>Price</td>
+                    <td class="greater-and-less" [hidden]="!priceSelected">
+                        <input type="radio" [checked]="priceGreaterOrLess === 1" (change)="priceGreaterOrLess = 1"> greater than<br>
+                        <input type="radio" [checked]="priceGreaterOrLess === 0" (change)="priceGreaterOrLess = 0"> less than
+                    </td>
+                    <td class="greater-and-less" [hidden]="!priceSelected"><input class="form-control input" type="text" [(ngModel)]="price"></td>
+                    <td class="empty-td"></td>
+                    <td class="empty-td"></td>
+                </tr>
+                <tr>
+                    <td class="radio"><input class="form-check-input switch-button" type="checkbox" (click)="selectCheckbox(betaStringLiteral)"></td>
+                    <td>Beta</td>
+                    <td class="greater-and-less" [hidden]="!betaSelected">
+                        <input type="radio" [checked]="betaGreaterOrLess === 1" (change)="betaGreaterOrLess = 1"> greater than<br>
+                        <input type="radio" [checked]="betaGreaterOrLess === 0" (change)="betaGreaterOrLess = 0"> less than
+                    </td>
+                    <td class="greater-and-less" [hidden]="!betaSelected"><input class="form-control input" type="text" [(ngModel)]="beta"></td>
+                    <td class="empty-td"></td>
+                    <td class="empty-td"></td>
+                </tr>
+                <tr>
+                    <td class="radio"><input class="form-check-input switch-button" type="checkbox" (click)="selectCheckbox(volumeStringLiteral)"></td>
+                    <td>Volume</td>
+                    <td class="greater-and-less" [hidden]="!volumeSelected">
+                        <input type="radio" [checked]="volumeGreaterOrLess === 1" (change)="volumeGreaterOrLess = 1"> greater than<br>
+                        <input type="radio" [checked]="volumeGreaterOrLess === 0" (change)="volumeGreaterOrLess = 0"> less than
+                    </td>
+                    <td class="greater-and-less" [hidden]="!volumeSelected"><input class="form-control input"
+                            type="text" [(ngModel)]="volume"></td>
+                    <td class="empty-td"></td>
+                    <td class="empty-td"></td>
+                </tr>
+                <tr>
+                    <td class="radio"><input class="form-check-input switch-button" type="checkbox" (click)="selectCheckbox(dividendStringLiteral)"></td>
+                    <td>Dividend</td>
+                    <td class="greater-and-less" [hidden]="!dividendSelected">
+                        <input type="radio" [checked]="dividendGreaterOrLess === 1" (change)="dividendGreaterOrLess = 1"> greater than<br>
+                        <input type="radio" [checked]="dividendGreaterOrLess === 0" (change)="dividendGreaterOrLess = 0"> less than
+                    </td>
+                    <td class="greater-and-less" [hidden]="!dividendSelected"><input class="form-control input" type="text" [(ngModel)]="dividend"></td>
+                    <td class="empty-td"></td>
+                    <td class="empty-td"></td>
+                </tr>
+                <tr>
+                    <td class="radio"><input class="form-check-input switch-button" type="checkbox" (click)="selectCheckbox(sectorStringLiteral)"></td>
+                    <td>Sector</td>
+                    <td class="greater-and-less">
+                        <table [hidden]="!sectorSelected">
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 1" (change)="selected = 1"> Financial Services</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 2" (change)="selected = 2"> Basic Materials</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 3" (change)="selected = 3"> Communication Services</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 4" (change)="selected = 4"> Consumer Defensive</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="greater-and-less">
+                        <table [hidden]="!sectorSelected">
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 5" (change)="selected = 5"> Consumer Cyclical</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 6" (change)="selected = 6"> Real Estate</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 7" (change)="selected = 7"> Conglomerates</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 8" (change)="selected = 8"> Industrial Goods</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="empty-td">
+                        <table [hidden]="!sectorSelected">
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 9" (change)="selected = 9"> Healthcare</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 10" (change)="selected = 10"> Energy</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 11" (change)="selected = 11"> Technology</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 12" (change)="selected = 12"> Industrials</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="empty-td">
+                        <table [hidden]="!sectorSelected">
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 13" (change)="selected = 13"> Financial</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 14" (change)="selected = 14"> Services</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [checked]="selected === 15" (change)="selected = 15"> Utilities</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn" (click)="submitScreenerSearch()">Search</button>
+    </div>
+
+    <div class="table-background" *ngIf="search">
+        <div class="container">
+            <h2>Results</h2>
+            <table class="table table-striped search-results-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Volume</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let stock of stockDetailedArray">
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.companyName}}</td>
+                        <td>{{stock.price}}</td>
+                        <td>{{stock.volume}}</td>
+                        <td><button type="button" class="btn" (click)="viewStock(stock.symbol)">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="table-background" *ngIf="view">
+        <div class="container">
+            <h2>{{stockDetailed.name}}</h2>
+            <table class="table table-striped search-results-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Price</th>
+                        <th>Support Level</th>
+                        <th>Support Level Strength</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.symbol}}</td>
+                        <td>{{stockDetailed.price | currency}}</td>
+                        <td>{{stockDetailed.supportLevelPrice | currency}}</td>
+                        <td>{{stockDetailed.supportLevelStrength}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Five Minute Dip</th>
+                        <th>Five Minute Dip %</th>
+                        <th>Big Dip</th>
+                        <th>Big Dip %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.fiveMinuteDip}}</td>
+                        <td>-{{stockDetailed.fiveMinuteDipPercentage}}%</td>
+                        <td>{{stockDetailed.bigDip}}</td>
+                        <td>-{{stockDetailed.bigDipPercentage}}%</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Open</th>
+                        <th>Previous Close</th>
+                        <th>Change</th>
+                        <th>Change %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.open | currency}}</td>
+                        <td>{{stockDetailed.previousClose | currency}}</td>
+                        <td>{{stockDetailed.change | currency}}</td>
+                        <td>{{stockDetailed.changesPercentage}}%</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Volume</th>
+                        <th>Average Volume</th>
+                        <th>Market Cap</th>
+                        <th>Exchange</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.volume}}</td>
+                        <td>{{stockDetailed.avgVolume}}</td>
+                        <td>{{stockDetailed.marketCap}}</td>
+                        <td>{{stockDetailed.exchange}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Day High</th>
+                        <th>Day Low</th>
+                        <th>Year High</th>
+                        <th>Year Low</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.dayHigh | currency}}</td>
+                        <td>{{stockDetailed.dayLow | currency}}</td>
+                        <td>{{stockDetailed.yearHigh | currency}}</td>
+                        <td>{{stockDetailed.yearLow | currency}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Shares Outstanding</th>
+                        <th>Earnings Per Share</th>
+                        <th>50 Day Average Price</th>
+                        <th>200 Day Average Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.sharesOutstanding}}</td>
+                        <td>{{stockDetailed.eps}}</td>
+                        <td>{{stockDetailed.priceAvg50 | currency}}</td>
+                        <td>{{stockDetailed.priceAvg200 | currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn" (click)="back()">Back to Results</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+<svg class="bi" width="32" height="32" fill="currentColor">
+    <use xlink:href="bootstrap-icons.svg#bootstrap" />
+</svg>
+
+<div class="background">
+    <div class="search-box">
+        <h4>Search for a Stock</h4>
+        <div class="input-group">
+            <input type="search" id="form1" class="form-control" [(ngModel)]="searchString" />
+            <button type="button" class="btn" (click)="sumbitSearch(searchString)">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="table-background" *ngIf="search">
+        <div class="container">
+            <h2>Results for "{{searchString}}"</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Currency</th>
+                        <th>Stock Exchange</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let stock of stockOverviews">
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.name}}</td>
+                        <td>{{stock.currency}}</td>
+                        <td>{{stock.exchangeShortName}}</td>
+                        <td><button type="button" class="btn" (click)="viewStock(stock.symbol)">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="table-background" *ngIf="view">
+        <div class="container">
+            <h2>{{stockDetailed.name}}</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Price</th>
+                        <th>Support Level</th>
+                        <th>Support Level Strength</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.symbol}}</td>
+                        <td>{{stockDetailed.price | currency}}</td>
+                        <td>{{stockDetailed.supportLevelPrice | currency}}</td>
+                        <td>{{stockDetailed.supportLevelStrength}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Five Minute Dip</th>
+                        <th>Five Minute Dip %</th>
+                        <th>Big Dip</th>
+                        <th>Big Dip %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.fiveMinuteDip}}</td>
+                        <td>-{{stockDetailed.fiveMinuteDipPercentage}}%</td>
+                        <td>{{stockDetailed.bigDip}}</td>
+                        <td>-{{stockDetailed.bigDipPercentage}}%</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Open</th>
+                        <th>Previous Close</th>
+                        <th>Change</th>
+                        <th>Change %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.open | currency}}</td>
+                        <td>{{stockDetailed.previousClose | currency}}</td>
+                        <td>{{stockDetailed.change | currency}}</td>
+                        <td>{{stockDetailed.changesPercentage}}%</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Volume</th>
+                        <th>Average Volume</th>
+                        <th>Market Cap</th>
+                        <th>Exchange</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.volume}}</td>
+                        <td>{{stockDetailed.avgVolume}}</td>
+                        <td>{{stockDetailed.marketCap}}</td>
+                        <td>{{stockDetailed.exchange}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Day High</th>
+                        <th>Day Low</th>
+                        <th>Year High</th>
+                        <th>Year Low</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.dayHigh | currency}}</td>
+                        <td>{{stockDetailed.dayLow | currency}}</td>
+                        <td>{{stockDetailed.yearHigh | currency}}</td>
+                        <td>{{stockDetailed.yearLow | currency}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Shares Outstanding</th>
+                        <th>Earnings Per Share</th>
+                        <th>50 Day Average Price</th>
+                        <th>200 Day Average Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{stockDetailed.sharesOutstanding}}</td>
+                        <td>{{stockDetailed.eps}}</td>
+                        <td>{{stockDetailed.priceAvg50 | currency}}</td>
+                        <td>{{stockDetailed.priceAvg200 | currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn" (click)="back()">Back to Results</button>
+        </div>
+    </div>
+</div>

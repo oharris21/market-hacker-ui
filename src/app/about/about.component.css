@@ -1,0 +1,41 @@
+    .background {
+      background-color: rgb(0, 0, 0);
+      height: 100%; 
+      width: 100%; 
+      overflow: scroll;
+    }
+
+    .about-mh {
+      background-color: rgb(100, 100, 100);
+      padding: 20px;
+      color: white; 
+      margin: 10% 1% 1% 10%; 
+      border-style: outset; 
+    }
+
+    .about-owen {
+      background-color: rgb(100, 100, 100);
+      padding: 20px;
+      color: white; 
+      margin: 5% 1% 1% 10%; 
+      border-style: outset; 
+    }
+
+    .owen-p1 {
+      float: right; 
+      margin-top: 15%; 
+    }
+
+    .owen-p2 {
+      margin-top: 2%; 
+    }
+
+    h1 {
+      color: white; 
+    }
+
+    img {
+      height: 250px;
+      width: 200px; 
+      float: left;
+    }

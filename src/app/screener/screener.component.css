@@ -1,0 +1,55 @@
+  .search-box {
+    background-color: rgb(100, 100, 100);
+    padding: 20px;
+    color: white; 
+    margin: 10% 1% 5% 10%; 
+    border-style: outset; 
+  }
+
+  .radio {
+    width: 2%; 
+  }
+
+  .input {
+    width: 60%; 
+  }
+
+  .greater-and-less {
+      width: 30%; 
+  }
+
+  .empty-td {
+      width: 20%; 
+  }
+
+  table {
+    color: white; 
+  }
+
+  .table-background {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    color: white; 
+    margin: 5% 1% 10% 10%; 
+  }
+
+  .search-results-table {
+    color: black; 
+    border-style: outset; 
+  }
+
+  .background {
+    background-color: rgb(0, 0, 0);
+    height: 100%; 
+    width: 100%; 
+    overflow: scroll;
+  }
+
+  button {
+    background-color:  rgb(0, 255, 0);
+  }
+
+  .switch-button:checked{
+    background-color:  rgb(0, 255, 0);
+  }
+  
